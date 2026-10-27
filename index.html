@@ -1,11 +1,31 @@
- <!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Carnet Forme</title>
+<title>Palestre</title>
+<meta name="description" content="Suivi des repas, de l’eau, des pas, du sport et du poids.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#EFF3F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1613" media="(prefers-color-scheme: dark)">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Palestre">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="style.css">
+<style>
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent}
+button,.chip,.tab,.frow{touch-action:manipulation;-webkit-user-select:none;user-select:none}
+.inp,input,select{-webkit-user-select:text;user-select:text}
+</style>
 </head>
 <body>
 
@@ -13,8 +33,12 @@
 <div id="sheet" hidden></div>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 <div class="tabs"><nav id="nav" aria-label="Sections"></nav></div>
+<noscript><p style="padding:24px;font-family:system-ui,sans-serif">Palestre a besoin de JavaScript pour fonctionner.</p></noscript>
 
-<script src="data.js"></script>
-<script src="app.js"></script>
+<script src="data.js" defer></script>
+<script src="app.js" defer></script>
+<script>
+if('serviceWorker' in navigator&&location.protocol==='https:'){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
+</script>
 </body>
 </html>
